@@ -12,13 +12,13 @@
         color: greenyellow;
 
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 3fr 1fr;
         grid-template-rows: 8vh 6vh 87vh 8vh;
         grid-template-areas:
-          "header"
-          "nav"
-          "main "
-          "footer";
+          "header header"
+          "nav nav"
+          "main aside"
+          "footer footer";
 
         margin: auto;
       }
@@ -69,13 +69,18 @@
         border: 2px solid blue;
         border-radius: 5px;
       }
-
-      main {
-        grid-area: main;
-        color: gray;
+      nav ul li a {
+        text-decoration: none;
+        color: green;
+      }
+      nav ul li a:hover {
+        background-color: blue;
+      }
+      nav ul li a:active {
+        background-color: blueviolet;
       }
 
-      aside {
+      .navbar-left {
         position: absolute;
         left: -600px;
         top: 14vh;
@@ -85,12 +90,125 @@
         z-index: 1;
       }
 
-      aside li {
+      .navbar-left li {
         list-style: none;
         text-align: left;
         background-color: gray;
         border: 1px solid green;
         margin: 0px 0px 0px -15px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      main {
+        grid-area: main;
+        color: gray;
+
+        margin-left: 2px;
+
+        border: 2px solid green;
+        border-radius: 2px;
+
+        width: 98.9%;
+        height: 98.9%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      main .article1 {
+        border: 2px solid green;
+        border-radius: 2px;
+
+        height: 350px;
+        width: 500px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      main .article2 {
+        border: 2px solid green;
+        border-radius: 2px;
+
+        height: 350px;
+        width: 500px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      aside {
+        border: 2px solid green;
+        border-radius: 2px;
+
+        grid-area: aside;
+        height: 98.9%;
+        width: 98.9%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      aside .noticia1 {
+        border: 2px solid green;
+        border-radius: 2px;
+
+        height: 140px;
+        width: 200px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      aside .noticia2 {
+        border: 2px solid green;
+        border-radius: 2px;
+
+        height: 140px;
+        width: 200px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      aside .noticia3 {
+        border: 2px solid green;
+        border-radius: 2px;
+
+        height: 140px;
+        width: 200px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      aside .noticia4 {
+        border: 2px solid green;
+        border-radius: 2px;
+
+        height: 140px;
+        width: 200px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      aside .noticia5 {
+        border: 2px solid green;
+        border-radius: 2px;
+
+        height: 140px;
+        width: 200px;
 
         display: flex;
         align-items: center;
@@ -119,17 +237,15 @@
 
     <nav>
       <button id="toggleButton"><i class="fa-solid fa-bars"></i></button>
-      <ul>
-        <li>Home</li>
-        <li>Projetos</li>
-        <li>Sobre</li>
-        <li>Contatos</li>
+      <ul id="navbar">
+        <li><a href="http://">Home</a></li>
+        <li><a href="http://">Projetos</a></li>
+        <li><a href="http://">Sobre</a></li>
+        <li><a href="http://">Contatos</a></li>
       </ul>
     </nav>
 
-    <main></main>
-
-    <aside id="aside">
+    <div class="navbar-left" id="navbar-left">
       <ul>
         <li>x</li>
         <li>x</li>
@@ -156,6 +272,20 @@
         <li>x</li>
         <li>x</li>
       </ul>
+    </div>
+
+    <main>
+      <article class="article1">Texto</article>
+
+      <article class="article2">Texto</article>
+    </main>
+
+    <aside>
+      <div class="noticia1">Notícia</div>
+      <div class="noticia2">Notícia</div>
+      <div class="noticia3">Notícia</div>
+      <div class="noticia4">Notícia</div>
+      <div class="noticia5">Notícia</div>
     </aside>
 
     <footer>
@@ -165,17 +295,17 @@
 
     <script>
       const toggleButton = document.getElementById("toggleButton");
-      const aside = document.getElementById("aside");
+      const navbar = document.getElementById("navbar-left");
 
       function ShowSidebar() {
-        const sidebarLeft = parseInt(aside.style.left);
+        const sidebarLeft = parseInt(navbar.style.left);
 
         if (sidebarLeft === 10) {
           // Esconde a sidebar
-          aside.style.left = "-600px";
+          navbar.style.left = "-600px";
         } else {
           // Mostra a sidebar
-          aside.style.left = "10px";
+          navbar.style.left = "10px";
         }
       }
 
