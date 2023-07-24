@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Página com Estrutura CSS</title>
+    <script
+      src="https://kit.fontawesome.com/48449b2e4f.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        background-color: black;
+        color: greenyellow;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 8vh 6vh 87vh 8vh;
+        grid-template-areas:
+          "header"
+          "nav"
+          "main "
+          "footer";
+
+        margin: auto;
+      }
+      header {
+        grid-area: header;
+        display: flex;
+      }
+
+      header img {
+        justify-content: baseline;
+        align-items: baseline;
+        height: 50px;
+        width: 70px;
+        margin-top: 5px;
+        margin-left: 42px;
+      }
+
+      header a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+      nav {
+        background-color: black;
+        border: 1px solid blue;
+        margin: 0px;
+
+        grid-area: nav;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      nav button {
+        position: absolute;
+        left: 50px;
+        height: 25px;
+        width: 45px;
+      }
+      nav ul {
+        list-style: none;
+        display: inline-flex;
+      }
+      nav ul li {
+        padding: 5px;
+        margin: 10px;
+        border: 2px solid blue;
+        border-radius: 5px;
+      }
+
+      main {
+        grid-area: main;
+        color: gray;
+      }
+
+      aside {
+        position: absolute;
+        left: -600px;
+        top: 14vh;
+        width: 25%;
+        height: 80%;
+        transition: left 0.3s;
+        z-index: 1;
+      }
+
+      aside li {
+        list-style: none;
+        text-align: left;
+        background-color: gray;
+        border: 1px solid green;
+        margin: 0px 0px 0px -15px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      footer {
+        grid-area: footer;
+        border: 2px solid blue;
+      }
+      footer a {
+        display: flex;
+        align-items: baseline;
+        justify-content: baseline;
+        margin: 5px 0px 5px 10px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="./8550.jpg" alt="logo" />
+      <a>Treinando Front-end</a>
+    </header>
+
+    <nav>
+      <button id="toggleButton"><i class="fa-solid fa-bars"></i></button>
+      <ul>
+        <li>Home</li>
+        <li>Projetos</li>
+        <li>Sobre</li>
+        <li>Contatos</li>
+      </ul>
+    </nav>
+
+    <main></main>
+
+    <aside id="aside">
+      <ul>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+        <li>x</li>
+      </ul>
+    </aside>
+
+    <footer>
+      <a>Contatos</a>
+      <a>Endereço</a>
+    </footer>
+
+    <script>
+      const toggleButton = document.getElementById("toggleButton");
+      const aside = document.getElementById("aside");
+
+      function ShowSidebar() {
+        const sidebarLeft = parseInt(aside.style.left);
+
+        if (sidebarLeft === 10) {
+          // Esconde a sidebar
+          aside.style.left = "-600px";
+        } else {
+          // Mostra a sidebar
+          aside.style.left = "10px";
+        }
+      }
+
+      toggleButton.addEventListener("click", ShowSidebar);
+    </script>
+  </body>
+</html>
