@@ -128,9 +128,42 @@
         width: 500px;
 
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
       }
+
+      main .article1 .slide {
+        display: none;
+      }
+
+      main .article1 .slide img {
+        width: 80%;
+        height: 80%;
+        margin-left: 50px;
+        z-index: 1;
+      }
+      .prev1,
+      .next1 {
+        position: absolute;
+        transform: translateY(-225%);
+        z-index: 0;
+        cursor: pointer;
+        margin-right: 48vw;
+        margin-left: 25vw;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+      }
+
+      .prev1 {
+        left: 0;
+      }
+
+      .next1 {
+        right: 0;
+      }
+
       main .article2 {
         border: 2px solid green;
         border-radius: 2px;
@@ -139,8 +172,37 @@
         width: 500px;
 
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
+      }
+      main .article2 .slide2 {
+        display: none;
+      }
+
+      main .article2 .slide2 img {
+        width: 80%;
+        height: 80%;
+        margin-left: 50px;
+      }
+      .prev2,
+      .next2 {
+        position: absolute;
+        transform: translateY(-50%);
+        cursor: pointer;
+        margin-right: 48vw;
+        margin-left: 25vw;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+      }
+
+      .prev2 {
+        left: 0;
+      }
+
+      .next2 {
+        right: 0;
       }
 
       aside {
@@ -275,9 +337,41 @@
     </div>
 
     <main>
-      <article class="article1">Texto</article>
+      <article class="article1">
+        <div class="slide">
+          <img src="./bootstrap/img/banner1.png" alt="Slide 1" />
+          <div class="prev1" onclick="prevSlide1()">&#10094;</div>
+          <div class="next1" onclick="nextSlide1()">&#10095;</div>
+        </div>
+        <div class="slide">
+          <img src="./bootstrap/img/banner2.png" alt="Slide 2" />
+          <div class="prev1" onclick="prevSlide1()">&#10094;</div>
+          <div class="next1" onclick="nextSlide1()">&#10095;</div>
+        </div>
+        <div class="slide">
+          <img src="./bootstrap/img/banner3.png" alt="Slide 3" />
+          <div class="prev1" onclick="prevSlide1()">&#10094;</div>
+          <div class="next1" onclick="nextSlide1()">&#10095;</div>
+        </div>
+        <!-- <div class="prev1" onclick="prevSlide1()">&#10094;</div>
+        <div class="next1" onclick="nextSlide1()">&#10095;</div> -->
+        Texto
+      </article>
 
-      <article class="article2">Texto</article>
+      <article class="article2">
+        <div class="slide2">
+          <img src="./bootstrap/img/banner1.png" alt="Slide 1" />
+        </div>
+        <div class="slide2">
+          <img src="./bootstrap/img/banner2.png" alt="Slide 2" />
+        </div>
+        <div class="slide2">
+          <img src="./bootstrap/img/banner3.png" alt="Slide 3" />
+        </div>
+        <div class="prev2" onclick="prevSlide2()">&#10094;</div>
+        <div class="next2" onclick="nextSlide2()">&#10095;</div>
+        Texto
+      </article>
     </main>
 
     <aside>
@@ -294,6 +388,7 @@
     </footer>
 
     <script>
+      // Navbar left
       const toggleButton = document.getElementById("toggleButton");
       const navbar = document.getElementById("navbar-left");
 
@@ -310,6 +405,58 @@
       }
 
       toggleButton.addEventListener("click", ShowSidebar);
+
+      // Slides 1
+      let slideIndex1 = 1;
+      showSlide1(slideIndex1);
+
+      function prevSlide1() {
+        showSlide1((slideIndex1 -= 1));
+      }
+
+      function nextSlide1() {
+        showSlide1((slideIndex1 += 1));
+      }
+
+      function showSlide1(index1) {
+        const slides1 = document.getElementsByClassName("slide");
+        if (index1 > slides1.length) {
+          slideIndex1 = 1;
+        }
+        if (index1 < 1) {
+          slideIndex1 = slides1.length;
+        }
+        for (let i = 0; i < slides1.length; i++) {
+          slides1[i].style.display = "none";
+        }
+        slides1[slideIndex1 - 1].style.display = "block";
+      }
+
+      //Slide 2
+      let slideIndex2 = 1;
+      showSlide2(slideIndex2);
+
+      function prevSlide2() {
+        showSlide2((slideIndex2 -= 1));
+      }
+
+      function nextSlide2() {
+        showSlide2((slideIndex2 += 1));
+      }
+
+      function showSlide2(index2) {
+        const slides2 = document.getElementsByClassName("slide2");
+        if (index2 > slides2.length) {
+          slideIndex2 = 1;
+        }
+        if (index2 < 1) {
+          slideIndex2 = slides2.length;
+        }
+        for (let i = 0; i < slides2.length; i++) {
+          slides2[i].style.display = "none";
+        }
+        slides2[slideIndex2 - 1].style.display = "block";
+      }
     </script>
   </body>
 </html>

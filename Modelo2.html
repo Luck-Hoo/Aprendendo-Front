@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modelo 2</title>
+    <style>
+      body {
+        background-color: black;
+        color: green;
+      }
+      .cabeçalho {
+        display: flex;
+        justify-content: space-between;
+        border: 2px solid green;
+      }
+      header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid green;
+        cursor: pointer;
+      }
+      nav {
+        border: 2px solid green;
+      }
+      nav ul {
+        display: flex;
+        flex-direction: row;
+        margin-right: 10px;
+        border: 5px;
+      }
+
+      nav ul li {
+        list-style: none;
+        border: 2px solid green;
+        margin: 10px;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+      nav ul li:hover {
+        background-color: aliceblue;
+      }
+      .dropdown1 {
+        display: none;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.3);
+        top: 60px;
+        right: 100px;
+        width: 100px;
+        padding: 5px;
+        z-index: 1;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 1px;
+      }
+      .dropdown2 {
+        display: none;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.3);
+        top: 60px;
+        right: 40px;
+        width: 100px;
+        padding: 5px;
+        z-index: 1;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 1px;
+      }
+      .dropdown3 {
+        display: none;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.3);
+        top: 60px;
+        right: 0px;
+        width: 100px;
+        padding: 5px;
+        z-index: 1;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 1px;
+      }
+
+      nav li:hover .dropdown1 {
+        display: block;
+      }
+      nav li:hover .dropdown2 {
+        display: block;
+      }
+      nav li:hover .dropdown3 {
+        display: block;
+      }
+
+      .dropdown a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 5px;
+      }
+      .carrosel-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 300px;
+        /* max-width: 900px; */
+        width: 100%;
+        overflow: hidden;
+      }
+      .carrosel-slide {
+        display: flex;
+        width: 300%;
+      }
+      .carrosel-slide img {
+        width: 100%;
+        object-fit: cover;
+        transform: translateY(-30%);
+      }
+      .ant,
+      .prox {
+        color: black;
+        position: absolute;
+        cursor: pointer;
+        top: 40%;
+        transform: translateY(
+          -50%
+        ); /* Ajusta o posicionamento vertical para o meio */
+        font-size: 50px; /* Ajusta o tamanho dos ícones de seta (opcional) */
+        padding: 3px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+      .ant {
+        left: 0;
+      }
+
+      .prox {
+        right: 0;
+      }
+      .primeira-tabela {
+        display: flex;
+
+        margin-top: -50px;
+        width: auto;
+        height: 200px;
+
+        justify-content: center;
+        align-items: center;
+
+        border: 2px solid green;
+      }
+      .segunda-tabela {
+        display: flex;
+
+        width: auto;
+        height: 200px;
+
+        justify-content: center;
+        align-items: center;
+
+        border: 2px solid green;
+      }
+      .paralax-container {
+        /* display: flex; */
+
+        width: auto;
+        height: 200px;
+
+        /* justify-content: center;
+        align-items: center; */
+
+        border: 2px solid green;
+
+        position: relative;
+        overflow: hidden;
+      }
+      .paralax-container .terceira-tabela {
+        position: absolute;
+        top: 0;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+      }
+      .paralax-container .terceira-tabela img {
+        background-image: url("./bootstrap/img/banner1.png");
+        transform: translateY(-20%);
+      }
+      .quarta-tabela {
+        display: flex;
+
+        width: auto;
+        height: 200px;
+
+        justify-content: center;
+        align-items: center;
+
+        border: 2px solid green;
+      }
+      footer {
+        display: flex;
+        justify-content: space-around;
+        padding-right: 100px;
+        border: 2px solid green;
+      }
+      footer ul {
+      }
+      footer ul li {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cabeçalho">
+      <header>Logo e Título</header>
+      <nav>
+        <ul>
+          <li>
+            <a>Home</a>
+            <div class="dropdown1">
+              <a href="#">Categoria 1</a>
+              <a href="#">Categoria 2</a>
+              <a href="#">Categoria 3</a>
+            </div>
+          </li>
+          <li>
+            <a>Projetos</a>
+            <div class="dropdown2">
+              <a href="#">Categoria 1</a>
+              <a href="#">Categoria 2</a>
+              <a href="#">Categoria 3</a>
+            </div>
+          </li>
+          <li>
+            <a>Sobre</a>
+            <div class="dropdown3">
+              <a href="#">Categoria 1</a>
+              <a href="#">Categoria 2</a>
+              <a href="#">Categoria 3</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="carrosel-container">
+      <div class="carrosel-slide">
+        <img src="./bootstrap/img/banner1.png" alt="img1" />
+        <img src="./bootstrap/img/banner2.png" alt="img2" />
+        <img src="./bootstrap/img/banner3.png" alt="img3" />
+      </div>
+      <div class="ant" onclick="antslid()">&#10096;</div>
+      <div class="prox" onclick="proxslid()">&#10097;</div>
+    </div>
+    <main>
+      <div class="primeira-tabela">Como treinar Front-end</div>
+      <div class="segunda-tabela">Como treinar Front-end</div>
+      <div class="paralax-container">
+        <div class="terceira-tabela" data-speed="0.5">
+          <img src="./bootstrap/img/banner1.png" alt="img1" />
+        </div>
+      </div>
+      <div class="quarta-tabela">Como treinar Front-end</div>
+    </main>
+    <footer>
+      <ul>
+        <li>Tópico 1</li>
+        <li>Tópico 2</li>
+        <li>Tópico 3</li>
+      </ul>
+      <ul>
+        <li>Tópico 1</li>
+        <li>Tópico 2</li>
+        <li>Tópico 3</li>
+      </ul>
+      <ul>
+        <li>Tópico 1</li>
+        <li>Tópico 2</li>
+        <li>Tópico 3</li>
+      </ul>
+    </footer>
+    <script>
+      //efeito dropdown
+
+      //efeito Slider/Carrousel
+      let slideIndex = 1; // Variável que controla a imagem atual do carros
+      const slider = document.querySelector(".carrosel-slide");
+      function antslid() {
+        slide((slideIndex -= 1));
+      }
+      function proxslid() {
+        slide((slideIndex += 1));
+      }
+      function slide() {
+        if (slideIndex < 1) {
+          slideIndex = slider.children.length;
+        }
+        if (slideIndex > slider.children.length) {
+          slideIndex = 1;
+        }
+        for (let i = 0; i < slider.children.length; i++) {
+          slider.children[i].style.display = "none";
+        }
+        slider.children[slideIndex - 1].style.display = "block";
+      }
+      setInterval(proxslid, 3000);
+
+      //efeito paralax
+      const parallaxLayers = document.querySelectorAll(".terceira-tabela");
+
+      window.addEventListener("scroll", () => {
+        parallaxLayers.forEach((layer) => {
+          const speed = layer.getAttribute("data-speed");
+          const yPos = -(window.scrollY * speed);
+          layer.style.transform = `translateY(${yPos}px)`;
+        });
+      });
+    </script>
+  </body>
+</html>
